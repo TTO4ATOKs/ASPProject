@@ -4,11 +4,11 @@ namespace ASPProject.Controllers
 {
     public class UserController : Controller
     {
-        private readonly Users _userService;
+        private readonly UsersAuthorization _userService;
 
         public UserController()
         {
-            _userService = new Users();
+            _userService = new UsersAuthorization();
         }
 
         [HttpGet]
@@ -41,7 +41,6 @@ namespace ASPProject.Controllers
         {
             if (_userService.Login(login, password)) 
             {
-                ViewBag.ErrorMeassage = "Authorized";
                 return RedirectToAction("Index", "Home");
             }
 
